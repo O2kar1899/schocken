@@ -11,3 +11,11 @@ class Dice():
 
     def random_side_grafic():
         pass
+
+
+def roll_dices(dices):
+    wurf = []
+    for i in range(dices):
+        value = random_side()
+        wurf.append(value)
+    return wurf

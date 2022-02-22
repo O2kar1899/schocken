@@ -1,2 +1,2 @@
-__all__ = ["dice", "evaluation"]
-from . import dice, evaluation
+__all__ = ["dice", "game", "player", "schocken"]
+from . import dice, game, player, schocken

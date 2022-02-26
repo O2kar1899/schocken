@@ -1,11 +1,12 @@
+import re
+from unicodedata import name
+
+
 class Player():
-    def input_name(self):
-        self.name = input("Spieler 1 gib Deinen Namen ein: ")
-        print("Schön, dass Du dabei bist", self.name + "!")
+    def __init__(self, name="unknown"):
+        self.name = name
+        if name == "unknwon":
+            self.name = input("Bitte gebe Deinen Namen ein: ")
 
-    def __str__(self):
-        pass
-
-
-player_1 = Player()
-player_1.input_name()
+    def player_info(self):
+        print("Der Spieler hat den Namen", self.name)

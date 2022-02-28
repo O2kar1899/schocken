@@ -12,11 +12,7 @@ class Dice():
     def random_side_grafic(self):
         pass
 
-    def roll_dices(self, dices):
-        self.dices = dices
-        # print("Würfel", self.dices)
-        roll_dice_result = []
-        for i in range(self.dices):
-            value = randint(1, self.sides)
-            roll_dice_result.append(value)
+    def roll_dice(self):
+        roll_dice_result = randint(1, self.sides)
+
         return roll_dice_result

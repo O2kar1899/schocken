@@ -1,10 +1,12 @@
 import re
-from unicodedata import name
+# from unicodedata import name
 
 
 class Player():
+
     def __init__(self, name="unknown"):
         self.name = name
+
         if name == "unknwon":
             self.name = input("Bitte gebe Deinen Namen ein: ")
 

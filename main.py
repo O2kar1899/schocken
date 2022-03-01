@@ -1,31 +1,31 @@
-from dice import *
-from schocken import HumanPlayer
+
+from multiprocessing import Value
+from dice import Dice
+from schocken import Player, evaluation, keep_or_discard
 import time
 
 print("************  main.py ********************")
 
-heiner = HumanPlayer("Heiner")
+pott = 13
 
+
+# +++++++++++++++++   Mensch   +++++++++++++++++++++++++++++++
+human = Player("Heiner")
+value = []
+w = Dice(6)
 
 for i in range(3):
-    wert = heiner.roll()
-    print(f"Würfel {i+1}: Augen: {wert[i]} ")
-    time.sleep(0.5)
+    x = w.roll_dice()
+    value.append(x)
 
-a = heiner.evaluation(wert)
-if "Schock Aus" in a:
-    print("SCHOCK AUS!")
-    print("")
-    print("Du hast die Runde gewonnen und bekommst alle Punkte die noch im Pott sind")
-else:
-    print("Erbebnis des ersten Wurfs:", wert)
-    print("+++++++++++++++++++++++++")
-    print('Möchtest Du den gesamten Wur behalten? Der Gegner hat dann auch nur einen Versuch')
-    further = input(
-        'Drücke "J" für ganzen Wurf behalten oder "N", wenn Du noch mal würfeln willst.')
-    if further == "J" or further == "j" or further == "Y" or further == "y":
-        print("")
-        print(f'Dein Ergebnis: {a} im Ersten')
-        print("")
-    else:
-        pass
+erster_wurf = evaluation(value)
+keep_or_discard(value, erster_wurf)
+
+zweiter_wurf = evaluation(value)
+keep_or_discard(value, zweiter_wurf)
+
+dritter_wurf = evaluation(value)
+
+print("Erster Wurf:", erster_wurf)
+print("Zweiter Wurf:", zweiter_wurf)
+print("Dritter Wurf:", dritter_wurf)

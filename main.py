@@ -1,31 +1,19 @@
 
-from multiprocessing import Value
+import imp
 from dice import Dice
+from human import human_play
 from schocken import Player, evaluation, keep_or_discard
+from human import human_play
 import time
 
-print("************  main.py ********************")
+print("")
+
 
 pott = 13
 
+human_play()
 
-# +++++++++++++++++   Mensch   +++++++++++++++++++++++++++++++
-human = Player("Heiner")
-value = []
-w = Dice(6)
 
-for i in range(3):
-    x = w.roll_dice()
-    value.append(x)
-
-erster_wurf = evaluation(value)
-keep_or_discard(value, erster_wurf)
-
-zweiter_wurf = evaluation(value)
-keep_or_discard(value, zweiter_wurf)
-
-dritter_wurf = evaluation(value)
-
-print("Erster Wurf:", erster_wurf)
-print("Zweiter Wurf:", zweiter_wurf)
-print("Dritter Wurf:", dritter_wurf)
+computer = Player("computer")
+computer_value = []
+Dice = Dice(6)  # klassicher Würfel mit 6 Seiten

@@ -8,33 +8,27 @@ class Player:
         self.name = name
 
 
-# def roll(wurf=[]):
-#     dice = Dice(6)  # Würfel mit 6 Seiten
-#     result = dice.roll_dice()
-#     wurf.append(result)
-#     output = wurf
-#     return wurf
-
-
 def evaluation(result=[0, 0, 0]):
-    if result[0] == result[1] and result[0] == result[2] and result[0] != 1:
+    if result[0] == result[1] and result[0] == result[2] and result[0] != 1:  # General
         general = result[0]
         return f"General {result[0]}"
-    elif result[0] == 1 and result[1] == 1 and result[2] == 1:
+    elif result[0] == 1 and result[1] == 1 and result[2] == 1:  # Schock Aus
         return "Schock Aus"
-    elif (result[0] == 1 and (result[1] == 1 or result[2] == 1)) or (result[1] == 1 and result[2] == 1):
+    elif (result[0] == 1 and (result[1] == 1 or result[2] == 1)) or (result[1] == 1 and result[2] == 1):  # Schock
         for i in range(3):
             if result[i] != 1:
                 schock = result[i]
         return f"Schock {schock}"
     else:
-        result.sort(reverse=True)
+        result.sort(reverse=True)       # Zahl
         return f"Zahl: {result} "
 
 
-def keep_or_discard(value, evaluation=""):
+def keep_or_discard(value, round=1, evaluation=""):
     further = False
     w = Dice(6)
+    x = ["einen Versuch", "zwei Versuche", "drei Versuche"]
+    output_txt = x[round-1]
 
     if "Schock Aus" in evaluation:
         print("SCHOCK AUS!")
@@ -43,15 +37,18 @@ def keep_or_discard(value, evaluation=""):
 
     else:
         print("Erbebnis des Wurfs:", value)
-        print("+++++++++++++++++++++++++")
-        print('Möchtest Du den gesamten Wurf behalten? Der Gegner bekommt genauso viele Versuche wie Du')
+        print("")
+        print(
+            f'Möchtest Du den gesamten Wurf behalten? Der Gegner bekommt auch {output_txt}')
+
         further = input(
-            'Drücke "J" für ganzen Wurf behalten oder "N", wenn Du noch mal würfeln willst. ')
+            'Drücke "J" für Ja oder "N" für Nein: ')
         if further == "J" or further == "j" or further == "Y" or further == "y":
-            print("")
-            print(f'Dein Ergebnis: {evaluation} im Ersten')
-            print("")
+            # print("")
+            # print(f'Dein Ergebnis: {evaluation} im Ersten')
+            # print("")
             further = False
+            return further
         else:
             further = True
 
@@ -79,3 +76,5 @@ def keep_or_discard(value, evaluation=""):
         if dice_3 != "J" and dice_3 != "j" and dice_3 != "Y" and dice_3 != "y":
             value[2] = w.roll_dice()
             print(f"Würfel 3 wurde neu gewürfelt: {value[2]} ")
+    print('')
+    return True

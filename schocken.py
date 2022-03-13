@@ -1,4 +1,3 @@
-from unittest import result
 from dice import Dice
 import time
 
@@ -34,6 +33,7 @@ def keep_or_discard(value, round=1, evaluation=""):
         print("SCHOCK AUS!")
         print("")
         print("Du hast die Runde gewonnen und bekommst alle Punkte die noch im Pott sind")
+        further = False
 
     else:
         print("Erbebnis des Wurfs:", value)
@@ -45,10 +45,10 @@ def keep_or_discard(value, round=1, evaluation=""):
             'Drücke "J" für Ja oder "N" für Nein: ')
         if further == "J" or further == "j" or further == "Y" or further == "y":
             # print("")
-            # print(f'Dein Ergebnis: {evaluation} im Ersten')
+            print("+++++++ mit Ja geantwortet ++++++++++")
             # print("")
             further = False
-            return further
+            return value, output_txt
         else:
             further = True
 
@@ -61,20 +61,21 @@ def keep_or_discard(value, round=1, evaluation=""):
             f"Möchtest Du den zweiten Würfel mit {value[1]} Augen behalten? J/N: ")
         dice_3 = input(
             f"Möchtest Du den dritten Würfel mit {value[2]} Augen behalten? J/N: ")
-        x = 0
 
         if dice_1 != "J" and dice_1 != "j" and dice_1 != "Y" and dice_1 != "y":
             value[0] = w.roll_dice()
             print(f"Würfel 1 wurde neu gewürfelt: {value[0]} ")
-
         else:
             print(f"Der erste Würfel bleibt {value[0]} ")
 
         if dice_2 != "J" and dice_2 != "j" and dice_2 != "Y" and dice_2 != "y":
             value[1] = w.roll_dice()
             print(f"Würfel 2 wurde neu gewürfelt: {value[1]} ")
+
         if dice_3 != "J" and dice_3 != "j" and dice_3 != "Y" and dice_3 != "y":
             value[2] = w.roll_dice()
             print(f"Würfel 3 wurde neu gewürfelt: {value[2]} ")
+
     print('')
-    return True
+
+    return further

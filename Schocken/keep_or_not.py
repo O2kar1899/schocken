@@ -1,8 +1,6 @@
 
-result = [4, 5, 2]
 
-
-def keep_round_or_not(result):
+def keep_human_round_or_not(result):
     if result == [1, 1, 1]:
         return [True]  # der Wurf wird behalten
     else:
@@ -11,6 +9,14 @@ def keep_round_or_not(result):
             return True
         else:
             return False
+
+
+def keep_pc_round_or_not(result):
+    if (result[0] == 1 and (result[1] == 1 or result[2] == 1) or (result[1] == 1 and result[2] == 1)) \
+            or result[0] == 6 or (result[0] == result[1] and result[0] == result[2]):
+        return True
+    else:
+        return False
 
 
 def keep_dice_or_not(result):

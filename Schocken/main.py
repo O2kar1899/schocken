@@ -2,7 +2,8 @@ from evaluation import evaluation
 from play import RollDices
 from keep_or_not import keep_human_round, keep_pc_round
 from compare_score import compare_score, scoring
-
+import time
+start_time = time.perf_counter_ns
 pot = 13
 
 
@@ -50,7 +51,7 @@ print(f'Computer: {erg_string}: {erg_list} im {rounds}. Versuch')
 # ++++++++++++++++++++++ Auswertung +++++++++++++++++++++++++++
 
 compared_score = (compare_score(human_result, computer_result))
-print(f" Compared Score {compared_score}")
-winner_nr, compared_score_result, rank = compared_score
-print(f"Winner {winner_nr} Result: {compared_score_result} Rank: {rank} ")
-print("SCORE:", scoring(compared_score_result))
+winner_nr, compared_score_result, _ = compared_score
+
+points = scoring(compared_score)
+print(f'Points {points} ')

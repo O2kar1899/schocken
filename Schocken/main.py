@@ -1,10 +1,12 @@
 from evaluation import evaluation
 from play import RollDices
 from keep_or_not import keep_human_round, keep_pc_round
-from compare_score import compare_score, scoring
-import time
-start_time = time.perf_counter_ns
-pot = 13
+from scoring import compare_score, scoring_points, scoring_pott
+
+
+pott = 13
+human_points = 0
+computer_points = 0
 
 
 # --------------- Mensch ------------------
@@ -53,5 +55,15 @@ print(f'Computer: {erg_string}: {erg_list} im {rounds}. Versuch')
 compared_score = (compare_score(human_result, computer_result))
 winner_nr, compared_score_result, _ = compared_score
 
-points = scoring(compared_score)
+points = scoring_points(compared_score)
 print(f'Points {points} ')
+
+pott = scoring_pott(pott, points, 'ascending')
+
+if winner_nr == 1:
+    human_points += points
+elif winner_nr == 2:
+    computer_points += points
+
+print(
+    f' Aktueller Pott: {pott} \n Punktestand Mensch {human_points} \n Punktestand Computer {computer_points} ')

@@ -33,3 +33,51 @@ class RollDices():
             computer_result = self.result
 
         return computer_result
+
+    def computer_play(self, computer_attemps):
+        self.computer_attemps = computer_attemps
+        print("+++++++++++++", self.computer_attemps,
+              "+++++++++++++++++++++++++")
+        result = self.computer_first_round()
+        if keep_pc_round(result) == True:
+            computer_rounds = 1
+            computer_result = result
+        elif keep_pc_round(result) == False and self.computer_attemps > 1:
+            computer_rounds = 2
+            result = self.computer_first_round()
+            if keep_pc_round(result) == True:
+                computer_rounds = 2
+                computer_result = result
+            elif keep_pc_round(result) == False and self.computer_attemps > 2:
+                computer_rounds = 3
+                computer_result = self.computer_first_round()
+
+        erg_string, erg_list, _ = evaluation(computer_result)
+        print(
+            f'Computer: {erg_string}: {erg_list} im {computer_rounds}. Versuch')
+
+        return computer_result, computer_rounds
+
+    def human_play(self, human_attemps):
+        self.human_attemps = human_attemps
+        result = self.human_first_roll()
+        if keep_human_round(result) == True:
+            human_rounds = 1
+            human_result = result
+        else:
+            human_rounds = 2
+            result = self.human_further_roll(result)
+            human_result = None
+
+        if human_result == None:
+            if keep_human_round(result) == True:
+                human_result = result
+            else:
+                human_rounds = 3
+                human_result = self.human_further_roll(result)
+
+        erg_string, erg_list, _ = evaluation(human_result)
+        print(
+            f'Dein Ergebnis: {erg_string}: {erg_list} im {human_rounds}. Versuch')
+
+        return human_result, human_rounds

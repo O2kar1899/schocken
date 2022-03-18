@@ -63,7 +63,7 @@ def compare_score(human_result=(None, None, None), computer_result=(None, None, 
     elif winner == 2:
         rank = r2_rank
     else:
-        rank = None
+        rank = 0
 
     return (winner, result, rank)
 
@@ -82,6 +82,8 @@ def scoring_points(compared_result):
         points = 2
     elif result_rank == 5:
         points = 1
+    else:
+        points = 0
 
     return points
 
@@ -98,6 +100,6 @@ def scoring_pott(pott, points, direction='ascending'):
     if direction == 'descending':
         points = points*(-1)
 
-    new_pott = pott + points
+    new_pott = pott - points
 
     return new_pott

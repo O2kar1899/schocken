@@ -1,20 +1,23 @@
 
 def evaluation(result):
-    if result[0] == 1 and result[1] == 1 and result[2] == 1:
-        return ("Schock Aus", result, 1)
+    print(f'RESULT STARTWERT {result} ')
+    if result == [1, 1, 1]:
+        result_str = 'Schock Aus'
+        rank = 1
 
     elif (result[0] == 1 and (result[1] == 1 or result[2] == 1)) or (result[1] == 1 and result[2] == 1):  # Schock
-        for i in range(3):
-            if result[i] != 1:
-                schock = result
-        return ("Schock", schock, 2)
+        result_str = 'Schock'
+        rank = 2
 
     elif result[0] == result[1] and result[0] == result[2] and result[0] != 1:  # General
-        general = result
-        return ("General", general, 3)
+        result_str = 'General'
+        rank = 3
 
     # +++++++++++++++++++++++++++++++++++++++++++++++++ Straße fehlt noch
 
     else:
-        result.sort(reverse=True)       # Zahl
-        return ("Zahl", result, 5)
+        result_str = 'Zahl'
+        result.sort(reverse=True)
+        rank = 5
+
+    return (result_str, result, rank)

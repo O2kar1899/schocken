@@ -1,5 +1,5 @@
 from dice import Dice
-from keep_or_not import *
+from keep_or_not import keep_dice, keep_human_round, keep_pc_round
 from evaluation import evaluation
 
 
@@ -34,10 +34,8 @@ class RollDices():
 
         return computer_result
 
-    def computer_play(self, computer_attemps):
+    def computer_play(self, computer_attemps=3):
         self.computer_attemps = computer_attemps
-        print("+++++++++++++", self.computer_attemps,
-              "+++++++++++++++++++++++++")
         result = self.computer_first_round()
         if keep_pc_round(result) == True:
             computer_rounds = 1
@@ -52,7 +50,8 @@ class RollDices():
                 computer_rounds = 3
                 computer_result = self.computer_first_round()
 
-        erg_string, erg_list, _ = evaluation(computer_result)
+        computer_result = evaluation(computer_result)[1]
+        erg_string, erg_list, _ = computer_result
         print(
             f'Computer: {erg_string}: {erg_list} im {computer_rounds}. Versuch')
 
@@ -76,8 +75,9 @@ class RollDices():
                 human_rounds = 3
                 human_result = self.human_further_roll(result)
 
-        erg_string, erg_list, _ = evaluation(human_result)
-        print(
-            f'Dein Ergebnis: {erg_string}: {erg_list} im {human_rounds}. Versuch')
+        print(f'HUMAN_RESULT {human_result}')
+        print(evaluation(human_result))
+
+        # print()    f'Dein Ergebnis: {erg_string}: {erg_list} im {human_rounds}. Versuch')
 
         return human_result, human_rounds

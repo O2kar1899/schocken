@@ -12,9 +12,10 @@ while pott > 0:
     human = RollDices()
     human_play = human.human_play(3)
     human_result, human_rounds = human_play
+    # print("++++++####", human_play, " kkk ", human_rounds)
 
     computer = RollDices()
-    computer_play = computer.computer_play(human_rounds)
+    computer_play = computer.computer_play()
     computer_result, computer_rounds = computer_play
 
     compared_score = (compare_score(human_result, computer_result))

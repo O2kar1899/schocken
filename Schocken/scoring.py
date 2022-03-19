@@ -1,7 +1,9 @@
 from evaluation import evaluation
 
 
-def compare_score(human_result=(None, None, None), computer_result=(None, None, None)):
+def compare_score(human_result, computer_result):
+    print(
+        f'***** human_result {human_result}  computer_result: {computer_result} ')
     human_result = evaluation(human_result)
     computer_result = evaluation(computer_result)
     r1_string, r1_val, r1_rank = human_result

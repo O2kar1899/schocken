@@ -1,6 +1,5 @@
 
 def evaluation(result):
-    print(f'RESULT STARTWERT {result} ')
     if result == [1, 1, 1]:
         result_str = 'Schock Aus'
         rank = 1
@@ -17,7 +16,6 @@ def evaluation(result):
 
     else:
         result_str = 'Zahl'
-        result.sort(reverse=True)
         rank = 5
 
     return (result_str, result, rank)

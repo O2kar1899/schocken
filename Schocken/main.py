@@ -1,6 +1,4 @@
-from evaluation import evaluation
 from play import RollDices
-from keep_or_not import keep_human_round, keep_pc_round
 from scoring import compare_score, scoring_points, scoring_pott
 
 
@@ -12,10 +10,11 @@ while pott > 0:
     human = RollDices()
     human_play = human.human_play(3)
     human_result, human_rounds = human_play
-    # print("++++++####", human_play, " kkk ", human_rounds)
+
+    print("human play:", human_play, "human_rounds: ", human_rounds)
 
     computer = RollDices()
-    computer_play = computer.computer_play()
+    computer_play = computer.computer_play(human_rounds)
     computer_result, computer_rounds = computer_play
 
     compared_score = (compare_score(human_result, computer_result))
@@ -28,6 +27,7 @@ while pott > 0:
 
     if winner_nr == 1:
         human_points += points
+
     elif winner_nr == 2:
         computer_points += points
     else:

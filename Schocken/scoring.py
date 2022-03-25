@@ -1,18 +1,15 @@
+from audioop import reverse
 from evaluation import evaluation
 
 
 def compare_score(human_result, computer_result):
-    print(
-        f'***** human_result {human_result}  computer_result: {computer_result} ')
     human_result = evaluation(human_result)
     computer_result = evaluation(computer_result)
     r1_string, r1_val, r1_rank = human_result
     r2_string, r2_val, r2_rank = computer_result
 
-    # print(
-    #     f' r1-String: {r1_string} \n r1_val: {r1_val} \n r1_rank: {r1_rank} ')
-    # print(
-    #     f' r2-String: {r2_string} \n r2_val: {r2_val} \n r2_rank: {r2_rank} ')
+    r1_val.sort(reverse=True)
+    r2_val.sort(reverse=True)
 
     if r1_rank < r2_rank:
         winner = 1
@@ -93,7 +90,7 @@ def scoring_points(compared_result):
 def scoring_pott(pott, points, direction='ascending'):
     """points to pott = ascending / back = descending"""
 
-    if direction is not 'ascending' and direction is not 'descending':
+    if direction != 'ascending' and direction != 'descending':
         print("'direction' can be only 'ascending or 'descendig'")
         return False
 

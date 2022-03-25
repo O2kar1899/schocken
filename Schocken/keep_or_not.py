@@ -1,3 +1,4 @@
+import pygame
 
 
 def keep_human_round(result):
@@ -7,6 +8,8 @@ def keep_human_round(result):
         answer = input(f'Möchtest Du den Wurf: {result} behalten? (J/N): ')
         if answer == "J" or answer == "j" or answer == "Y" or answer == "y":
             return True
+        elif answer == 'q' or answer == 'Q':
+            quit()
         else:
             return False
 
@@ -27,6 +30,8 @@ def keep_dice(result):
         answer = input("J/N: ")
         if answer == "J" or answer == "j" or answer == "Y" or answer == "y":
             output.append(True)
+        elif answer == 'q' or answer == 'Q':
+            quit()
         else:
             output.append(False)
 

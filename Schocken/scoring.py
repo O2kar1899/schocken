@@ -25,7 +25,12 @@ def compare_score(human_result, computer_result):
                 winner = 0
 
         if r1_rank == 4:
-            pass
+            if r1_val[0] > r2_val[0]:
+                winner = 1
+            elif r1_val[0] < r2_val[0]:
+                winner = 2
+            else:
+                winner = 0
 
         if r1_rank == 5:
             if r1_val[0] > r2_val[0]:

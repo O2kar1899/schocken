@@ -1,5 +1,7 @@
 
 def evaluation(result):
+    result.sort()
+
     if result == [1, 1, 1]:
         result_str = 'Schock Aus'
         rank = 1
@@ -12,7 +14,9 @@ def evaluation(result):
         result_str = 'General'
         rank = 3
 
-    # +++++++++++++++++++++++++++++++++++++++++++++++++ Straße fehlt noch
+    if result[1] == result[0]+1 and result[2] == result[1]+1:
+        result_str = "Straße"
+        rank = 4
 
     else:
         result_str = 'Zahl'

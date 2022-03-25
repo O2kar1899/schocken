@@ -73,7 +73,7 @@ def scoring_points(compared_result):
     if result_rank == 1:
         points = 13
     elif result_rank == 2:
-        result_dices.sort(reverse=True)
+        result_dices.sort()
         points = result_dices[-1]
     elif result_rank == 3:
         points = 3

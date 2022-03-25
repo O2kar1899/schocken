@@ -19,6 +19,8 @@ while pott > 0:
 
     compared_score = (compare_score(human_result, computer_result))
     winner_nr, compared_score_result, _ = compared_score
+    print(
+        f'winner_nr: {winner_nr} compared_score_result: {compared_score_result} ')
 
     points = scoring_points(compared_score)
     print(f'Points {points} ')

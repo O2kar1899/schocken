@@ -96,13 +96,15 @@ def scoring_pott(pott, points, direction='ascending'):
     """points to pott = ascending / back = descending"""
 
     if direction != 'ascending' and direction != 'descending':
-        print("'direction' can be only 'ascending or 'descendig'")
+        """direction' can be only 'ascending or 'descendig"""
         return False
 
-    if points > pott:
-        points = pott
+    if direction == 'ascending':
+        if points > pott:
+            points = pott
+
     if direction == 'descending':
-        points = points*(-1)
+        points *= -1
 
     new_pott = pott - points
 

@@ -13,6 +13,7 @@ class RollDices():
     def human_first_roll(self):
         for i in range(3):
             self.result[i] = self.dice.roll_dice()
+        # self.round_number=1
         return self.result
 
     def human_further_roll(self, result):
@@ -20,7 +21,7 @@ class RollDices():
         for i in range(len(kon)):
             if kon[i] == False:
                 result[i] = self.dice.roll_dice()
-        self.round_number = 3
+        #self.round_number += 1
 
         return result
 
@@ -50,8 +51,7 @@ class RollDices():
             computer_result = self.computer_first_round()
 
             if keep_pc_round(result) == True:
-                print(
-                    f'B self.computer_attemps: {self.computer_attemps} > {computer_rounds} (computer_rounds) ')
+
                 computer_rounds = 2
                 computer_result = result
 
@@ -64,33 +64,35 @@ class RollDices():
         computer_result.sort
         erg_string, erg_list, _ = evaluation(computer_result)
 
-        print(
-            f'Computer: {erg_string}: {erg_list} im {computer_rounds}. Versuch')
-
         return computer_result, computer_rounds
 
     def human_play(self, human_attemps=3):
         self.human_attemps = human_attemps
         result = self.human_first_roll()
+        human_result = None
         if keep_human_round(result) == True:
             human_rounds = 1
             human_result = result
         else:
-            human_rounds = 2
             result = self.human_further_roll(result)
-            human_result = None
+            human_rounds = 1
 
         if human_result == None:
             if keep_human_round(result) == True:
                 human_result = result
+                human_rounds = 2
             else:
+                result = self.human_further_roll(result)
+                #human_result = result
+                human_rounds = 2
+
+        if human_result == None:
+            if keep_human_round(result) == True:
+                human_result = result
                 human_rounds = 3
-                human_result = self.human_further_roll(result)
-
-        # print(f'HUMAN_RESULT {human_result}')
-        # print(evaluation(human_result))
-
-        print(
-            f'++++++++++++++++++++++++++++++++++++++Dein Ergebnis: {human_result} im {human_rounds}. Versuch')
+            else:
+                result = self.human_further_roll(result)
+                human_result = result
+                human_rounds = 3
 
         return human_result, human_rounds

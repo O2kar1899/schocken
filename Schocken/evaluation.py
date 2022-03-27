@@ -6,7 +6,7 @@ def evaluation(result):
         result_str = 'Schock Aus'
         rank = 1
 
-    elif (result[0] == 1 and (result[1] == 1 or result[2] == 1)) or (result[1] == 1 and result[2] == 1):  # Schock
+    elif result[-1] == 1 and result[-2]:  # Schock
         result_str = 'Schock'
         rank = 2
 

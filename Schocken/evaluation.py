@@ -6,7 +6,7 @@ def evaluation(result):
         result_str = 'Schock Aus'
         rank = 1
 
-    elif result[-1] == 1 and result[-2]:  # Schock
+    elif result[-1] == 1 and result[-2] == 1:  # Schock
         result_str = 'Schock'
         rank = 2
 
@@ -21,5 +21,7 @@ def evaluation(result):
     else:
         result_str = 'Zahl'
         rank = 5
+
+    #print(f'Funktion evaluation --string: {result_str}, result: {result}, rank: {rank} ')
 
     return (result_str, result, rank)

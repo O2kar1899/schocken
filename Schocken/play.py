@@ -38,30 +38,29 @@ class RollDices():
 
         return computer_result
 
-    def computer_play(self, computer_attemps=1):
+    def computer_play(self, human_result, computer_attemps=1):
         self.computer_attemps = computer_attemps
         result = self.computer_first_round()
         computer_rounds = 1
-        if keep_pc_round(result) == True:
+        if keep_pc_round(result, human_result) == True:
             computer_rounds = 1
             computer_result = result
-        elif (keep_pc_round(result) == False) and (self.computer_attemps > computer_rounds):
+        elif (keep_pc_round(result, human_result) == False) and (self.computer_attemps > computer_rounds):
 
             computer_rounds = 2
             computer_result = self.computer_first_round()
 
-            if keep_pc_round(result) == True:
+            if keep_pc_round(result, human_result) == True:
 
                 computer_rounds = 2
                 computer_result = result
 
-            elif keep_pc_round(result) == False and self.computer_attemps > computer_rounds:
+            elif keep_pc_round(result, human_result) == False and self.computer_attemps > computer_rounds:
                 computer_rounds = 3
                 computer_result = self.computer_first_round()
         else:
             computer_result = result
 
-        computer_result.sort
         erg_string, erg_list, _ = evaluation(computer_result)
 
         return computer_result, computer_rounds

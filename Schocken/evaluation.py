@@ -1,6 +1,6 @@
 
 def evaluation(result):
-    result.sort()
+    result.sort(reverse=True)
 
     if result == [1, 1, 1]:
         result_str = 'Schock Aus'
@@ -14,7 +14,7 @@ def evaluation(result):
         result_str = 'General'
         rank = 3
 
-    if result[1] == result[0]+1 and result[2] == result[1]+1:
+    elif result[1] == result[0]-1 and result[2] == result[1]-1:
         result_str = "Straße"
         rank = 4
 

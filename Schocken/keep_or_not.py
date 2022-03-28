@@ -1,4 +1,5 @@
-import pygame
+import sys
+from scoring import compare_score
 
 
 def keep_human_round(result):
@@ -9,14 +10,14 @@ def keep_human_round(result):
         if answer == "J" or answer == "j" or answer == "Y" or answer == "y":
             return True
         elif answer == 'q' or answer == 'Q':
-            quit()
+            exit()
         else:
             return False
 
 
-def keep_pc_round(result):
-    if (result[0] == 1 and (result[1] == 1 or result[2] == 1) or (result[1] == 1 and result[2] == 1)) \
-            or result[0] == 6 or (result[0] == result[1] and result[0] == result[2]):
+def keep_pc_round(computer_result, human_result):
+
+    if compare_score(human_result, computer_result)[0] == 2:
         return True
     else:
         return False
@@ -31,7 +32,7 @@ def keep_dice(result):
         if answer == "J" or answer == "j" or answer == "Y" or answer == "y":
             output.append(True)
         elif answer == 'q' or answer == 'Q':
-            quit()
+            exit()
         else:
             output.append(False)
 

@@ -1,4 +1,4 @@
-from audioop import reverse
+
 from evaluation import evaluation
 
 
@@ -17,7 +17,7 @@ def compare_score(human_result, computer_result):
         winner = 2
     else:
         if r1_rank == 2 or r1_rank == 3:
-            if r1_val[2] > r2_val[2]:
+            if r1_val[0] > r2_val[0]:
                 winner = 1
             elif r1_val[2] < r2_val[2]:
                 winner = 2
@@ -51,23 +51,27 @@ def compare_score(human_result, computer_result):
                         winner = 0
 
     if winner == 1:
-        print("Du hast die Runde gewonnen!")
         result = r1_val
-
-    elif winner == 2:
-        print("Du hast die Runde leider verloren!")
-        result = r2_val
-
-    else:
-        print("Unentschieden! Keine Wertung")
-        result = None
-
-    if winner == 1:
         rank = r1_rank
+
     elif winner == 2:
+        result = r2_val
         rank = r2_rank
+
     else:
+        result = None
         rank = 0
+
+    # if rank == 1:
+    #     rank_string = 'Schock Aus'
+    # elif rank == 2:
+    #     rank_string = 'Schock'
+    # elif rank == 3:
+    #     rank_string = 'General'
+    # elif rank == 4:
+    #     rank_string = 'Straße'
+    # elif rank == 5:
+    #     rank_string = 'Zahl'
 
     return (winner, result, rank)
 
@@ -78,8 +82,8 @@ def scoring_points(compared_result):
     if result_rank == 1:
         points = 13
     elif result_rank == 2:
-        result_dices.sort()
-        points = result_dices[-1]
+       # result_dices.sort()
+        points = result_dices[0]
     elif result_rank == 3:
         points = 3
     elif result_rank == 4:

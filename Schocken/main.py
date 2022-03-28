@@ -1,6 +1,7 @@
 from play import RollDices
 from scoring import compare_score, scoring_points, scoring_pott
 import time
+from rules import rules
 
 
 pott = 13
@@ -57,7 +58,11 @@ while pott > 0:
     print(
         f' \n Aktueller Pott: {pott} \n Punktestand Mensch {human_points} \n Punktestand Computer {computer_points} \n ')
 
-    time.sleep(3)
+    read_rules = input("Wenn Du die Regeln lesen mötest Drücke 'R': ")
+    if read_rules == "R" or "r":
+        rules()
+
+    time.sleep(2)
 
 # Rück-Runde Hölzchen vom Gewinner zum Pott
 print("     ****************")
@@ -69,10 +74,10 @@ while human_points > 0 and computer_points > 0:
     human_play = human.human_play(3)
     human_result, human_rounds = human_play
 
-    print("human play:", human_play, "human_rounds: ", human_rounds)
+    #print("human play:", human_play, "human_rounds: ", human_rounds)
 
     computer = RollDices()
-    computer_play = computer.computer_play(human_rounds)
+    computer_play = computer.computer_play(human_result, human_rounds)
     computer_result, computer_rounds = computer_play
 
     compared_score = (compare_score(human_result, computer_result))
@@ -87,16 +92,20 @@ while human_points > 0 and computer_points > 0:
 
     if winner_nr == 1:
         human_points -= points
+        print("\n Du hast die Runde gewonnen! \n")
         if human_points < 0:
             human_points = 0
 
     elif winner_nr == 2:
         computer_points -= points
+        print("\n Du hast die Runde leider verloren!\n")
         if computer_points < 0:
             computer_points = 0
     else:
-        pass
+        print("\n Unentschieden! Keine Wertung\n")
 
+    print(f'Mensch: {human_result} im {human_rounds}. Versuch ')
+    print(f'Computer: {computer_result} im {computer_rounds}. Versuch ')
     print(
         f' \n Aktueller Pott: {pott} \n Punktestand Mensch {human_points} \n Punktestand Computer {computer_points} \n ')
 

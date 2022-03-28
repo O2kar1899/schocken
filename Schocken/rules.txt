@@ -1,23 +1,28 @@
-Schocken mit drei Würfeln und in zwei Runden gespielt.
+Schocken wird mit drei Würfeln und in zwei Runden gespielt.
 
-Zu Beginn des Spiels liegen 13 Punkte im Pott. Die Spieler würlfeln Darum wer Punkte aus dem Pott bekommt
+Zu Beginn des Spiels liegen 13 Punkte im Pott. 
 
-Der erste Spieler hat bis zu 3 Würfe. Die weiteren Spieler können so oft werfen, wie es der erste Spieler vorgegeben hat.
-Vor dem zweiten und dritten Wurf darf der Spieler soviele Würel zur Seite legen wie er möchte. Er kann im dritten Wurf auch Würfel wieder 
+Der erste Spieler hat bis zu 3 Würfe. Die weiteren Spieler können so oft werfen, 
+wie es der erste Spieler vorgegeben hat. 
+Vor dem zweiten und dritten Wurf darf der Spieler soviele Würel zur 
+Seite legen wie er möchte. Er kann im dritten Wurf auch Würfel wieder 
 einsetzen die er im zweiten Wurf zur Seite gelegt hat.
 
-Wer das beste Ergebnis erzielt hat bekommt Punkte (höchsten soviele wie noch im Pott sind.)
+Wer das beste Ergebnis erzielt hat bekommt in der Hinrunde Punkte (höchsten soviele wie noch im Pott sind.) 
+In der Rückrunde werden Punkte abgegenen. Wer als erstes wieder auf Null ist, hat gewonnen.
 
 Die Ergebnisse sind in vier Gruppen unterteilt:
 
-'Schock Aus'
+*********** Schock Aus ***********
 Wurf: 
 drei 1-er 
+Wert:
+Hinrunde: Der Verlierer bekommt alle noch im Pott befindlichen Punkte.
+Rückrunde: Der Gewinner kann alle seine Punkte abgeben.
 
-Wert: 
-Der Spieler bekommt alle Punkte die noch im Pott sind, die anderen Spieler kommen nicht mehr an die Reihe.
+(Die anderen Spieler dürfen nicht mehr würfeln)
 
-'Schock'
+*********** Schock ***********
 Wurf:
 zwei 1-er und ein weitere Würfel (umso höher, umso besser)
 
@@ -25,21 +30,23 @@ Wert:
 Ensprechend der Augenzahl des dritten Würfels, bekommt der Spieler Punkte aus dem Pott.
 Beispiel: 1, 4, 1 --> Der Spieler bekommt 4 Punkte. (Auch ein Schock 2 - Schock-Doof - ist höherwertig als ein 'General')
 
-'General'
+*********** General ***********
 Wurf:
 Drei gleiche Würfel (umso höherwertig umso besser)
+Wert: 3 Punkte
 
-Wert:
-Der Spieler bekommt drei Punkte aus dem Pott
+*********** Straße ***********
+Drei Zahlen in Folge (z.B. 1,2,3 oder 2,3,4). Die höhere Straße gewinnt
+Wert: 2 Punkte
 
-'Einfachwe Zahl'
+*********** Einfache Zahl ***********
 Wurf:
 Alle anderen Kombinationen
 
-Wert: Der höchste Würfel ist entscheidet. Haben zwei Spieler den gleichen höchsten Würfel. Ist der zweite Entscheidend.
+Der höchste Würfel ist entscheidet. Haben zwei Spieler den gleichen höchsten Würfel. Ist der zweite Entscheidend.
 Wenn auch der gleich ist der dritte Würfel.
+Wert 1 Punkt
 
-Punkte bekommt immer nur der Spieler mit dem besten Ergebnis. Bei Gleichstand wird ein Stechen ausgespielt.
+Bei Gleichstand werden keine Punkte vergeben.
 
-
-
+Mit den Pfeiltasten kannst Du Dich innerhalg der Regeln bewegen. (Du kannst Dir natürlich auch die Datei rules.txt ausdrucken.)

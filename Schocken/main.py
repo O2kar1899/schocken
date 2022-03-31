@@ -59,8 +59,10 @@ while pott > 0:
         f' \n Aktueller Pott: {pott} \n Punktestand Mensch {human_points} \n Punktestand Computer {computer_points} \n ')
 
     read_rules = input("Wenn Du die Regeln lesen mötest Drücke 'R': ")
-    if read_rules == "R" or "r":
+    if read_rules == "R" or read_rules == "r":
         rules()
+    else:
+        print("-")
 
     time.sleep(2)
 

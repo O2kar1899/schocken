@@ -5,38 +5,41 @@ from evaluation import evaluation
 
 class RollDices():
     def __init__(self):
+        # festlegen wie viele Seiten der Würfel hat
         self.dice = Dice(6)
+        # die Liste result hat soviele werte, wie Würfel geworfen werden.
         self.result = [0, 0, 0]
+        # der Computer bekommt nur soviele Versuche, wie der Mensch genutzt hat
         self.computer_attemps = None
         self.human_attemps = None
 
+    # für den ersten Wurf werden alle drei Würfel genutzt
     def human_first_roll(self):
         for i in range(3):
             self.result[i] = self.dice.roll_dice()
-        # self.round_number=1
         return self.result
 
+    # in der funktion keep.dice wird ermittelt welche Würfel der Mensch behalten möchte
     def human_further_roll(self, result):
-        kon = (keep_dice(result))
-        for i in range(len(kon)):
-            if kon[i] == False:
+        kd = (keep_dice(result))
+        for i in range(len(kd)):
+            if kd[i] == False:
                 result[i] = self.dice.roll_dice()
-        #self.round_number += 1
-
         return result
 
+    # der Computer nutzt immer alle Würfel - schön blöd!
     def computer_first_round(self):
         for i in range(3):
             self.result[i] = self.dice.roll_dice()
         return self.result
 
-    def computer_further_roll(self, roll_result):
-        _, _, rank = evaluation(roll_result)
+    # def computer_further_roll(self, roll_result):
+    #     _, _, rank = evaluation(roll_result)
 
-        if rank < 4 or roll_result[0] == 6:
-            computer_result = self.result
+    #     if rank < 4 or roll_result[0] == 6:
+    #         computer_result = self.result
 
-        return computer_result
+    #     return computer_result
 
     def computer_play(self, human_result, computer_attemps=1):
         self.computer_attemps = computer_attemps

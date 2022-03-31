@@ -27,8 +27,8 @@ Wurf:
 zwei 1-er und ein weitere Würfel (umso höher, umso besser)
 
 Wert: 
-Ensprechend der Augenzahl des dritten Würfels, bekommt der Spieler Punkte aus dem Pott.
-Beispiel: 1, 4, 1 --> Der Spieler bekommt 4 Punkte. (Auch ein Schock 2 - Schock-Doof - ist höherwertig als ein 'General')
+Ensprechend der Augenzahl des dritten Würfels, ergeben sich die Punkte.
+Beispiel: 1, 4, 1 --> 4 Punkte. (Auch ein Schock 2 - Schock-Doof - ist höherwertig als ein 'General')
 
 *********** General ***********
 Wurf:

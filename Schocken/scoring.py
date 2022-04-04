@@ -62,17 +62,6 @@ def compare_score(human_result, computer_result):
         result = None
         rank = 0
 
-    # if rank == 1:
-    #     rank_string = 'Schock Aus'
-    # elif rank == 2:
-    #     rank_string = 'Schock'
-    # elif rank == 3:
-    #     rank_string = 'General'
-    # elif rank == 4:
-    #     rank_string = 'Straße'
-    # elif rank == 5:
-    #     rank_string = 'Zahl'
-
     return (winner, result, rank)
 
 

@@ -22,6 +22,4 @@ def evaluation(result):
         result_str = 'Zahl'
         rank = 5
 
-    #print(f'Funktion evaluation --string: {result_str}, result: {result}, rank: {rank} ')
-
     return (result_str, result, rank)

@@ -27,7 +27,7 @@ class RollDices():
                 result[i] = self.dice.roll_dice()
         return result
 
-    # der Computer nutzt immer alle Würfel - schön blöd!
+    # der Computer nutzt immer alle Würfel - schön blöde!
     def computer_first_round(self):
         for i in range(3):
             self.result[i] = self.dice.roll_dice()

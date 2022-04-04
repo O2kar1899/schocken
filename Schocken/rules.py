@@ -2,6 +2,8 @@ import os
 
 print(os.listdir("./Schocken/"))
 
+# Regeln
+
 
 def rules():
     print("\n ****************")

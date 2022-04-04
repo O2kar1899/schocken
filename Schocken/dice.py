@@ -2,7 +2,7 @@ from random import randint
 
 
 class Dice():
-    """Arg: Number of sides of the Dice"""
+    """Arg: Number of sides of the Dice """
 
     def __init__(self, sides):
         self.sides = sides

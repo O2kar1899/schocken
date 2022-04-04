@@ -4,7 +4,7 @@ import time
 from rules import rules
 
 
-pott = 13
+pott = 13  # Startwert für das Pott
 human_points = 0
 computer_points = 0
 print(" ")

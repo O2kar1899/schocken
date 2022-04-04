@@ -1,4 +1,4 @@
-Schocken wird mit drei Würfeln und in zwei Runden gespielt.
+# Schocken wird mit drei Würfeln und in zwei Runden gespielt.
 
 Zu Beginn des Spiels liegen 13 Punkte im Pott. 
 
